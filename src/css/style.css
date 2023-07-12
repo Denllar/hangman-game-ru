@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: Akzidenz;
+        font-weight: 700;
+        font-style: normal;
+        src: url(/fonts/akzidenz/AkzidenzGroteskPro-BoldEx.otf) format('opentype');
+    }
+    @font-face {
+        font-family: Akzidenz;
+        font-weight: 500;
+        font-style: normal;
+        src: url(/fonts/akzidenz/AkzidenzGroteskPro-Md.otf) format('opentype');
+    }
+    @font-face {
+        font-family: Akzidenz;
+        font-weight: 400;
+        font-style: normal;
+        src: url(/fonts/akzidenz/AkzidenzGroteskPro-Regular.otf) format('opentype');
+    }
+    html {
+        font-family: Akzidenz, system-ui, sans-serif;
+    }
+}
+
+@layer components {
+    #app {
+        @apply h-screen flex flex-col items-center justify-center dark:text-white dark:bg-zinc-800
+    }
+    .logo {
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold;
+    }
+    .logo-sm {
+        @apply text-xl;
+    }
+    .button-primary {
+        @apply flex justify-center items-center bg-slate-200 dark:bg-indigo-500 enabled:hover:bg-slate-300 enabled:dark:hover:bg-indigo-400 disabled:opacity-20 disabled:cursor-not-allowed py-2 rounded-md font-medium px-5
+    }
+    .button-secondary {
+        @apply border border-black rounded-md hover:bg-slate-100 dark:border-white dark:hover:bg-zinc-600;
+    }
+    .placeholders-wrapper {
+        @apply flex flex-row
+    }
+    .letter {
+        @apply mx-2 text-3xl font-medium 
+    }
+
+    .keyboard {
+        @apply max-w-2xl mt-5 flex justify-center flex-wrap;
+    }
+
+    .keyboard-button {
+        @apply w-10 h-10 sm:w-14 sm:h-14 m-1 sm:m-2
+    }
+    .hangman-img{
+        @apply w-32 h-32 sm:w-60 sm:h-60
+    }
+
+    .resul-header {
+        @apply text-2xl font-bold mt-4;
+    }
+
+    .result-header.win {
+        @apply text-lime-600;
+    }
+    .result-header.lose {
+        @apply text-red-600;
+    }
+    .result-word {
+        @apply font-medium uppercase
+    }
+}

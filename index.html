@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman game</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="absolute top-6 right-6 flex items-center">
+        <input
+          type="checkbox"
+          id="toggleDarkMode"
+          class="relative w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-indigo-500 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 border border-transparent ring-1 ring-transparent focus:border-blue-600 focus:ring-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800 before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200"
+          />
+          <label for="hs-basic-usage" class="sr-only">switch</label>
+          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark mode</span>
+      </div>
+
+      <h1 id="logo" class="logo">[ --HANGMAN GAME-- ]</h1>
+      <div id="game" class="mt-10 flex flex-col items-center dark:bg-blue">
+        <button id="startGame" class="button-primary">Start Game</button>
+      </div>
+    </div>
+    <script type="module" src="./src/js/main.js"></script>
+  </body>
+</html>
