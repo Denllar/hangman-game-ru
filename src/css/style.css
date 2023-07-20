@@ -37,7 +37,7 @@
         @apply text-xl;
     }
     .button-primary {
-        @apply flex justify-center items-center bg-slate-200 dark:bg-indigo-500 enabled:hover:bg-slate-300 enabled:dark:hover:bg-indigo-400 disabled:opacity-20 disabled:cursor-not-allowed py-2 rounded-md font-medium px-5
+        @apply flex justify-center items-center bg-slate-200 dark:bg-indigo-500 enabled:hover:bg-slate-300 enabled:dark:hover:bg-indigo-400 disabled:opacity-20 disabled:cursor-not-allowed py-2 rounded-md font-medium px-5 m-1
     }
     .button-secondary {
         @apply border border-black rounded-md hover:bg-slate-100 dark:border-white dark:hover:bg-zinc-600;
@@ -50,11 +50,22 @@
     }
 
     .keyboard {
-        @apply max-w-2xl mt-5 flex justify-center flex-wrap;
+        @apply w-80 mt-5 md:w-auto flex flex-col justify-center;
     }
-
     .keyboard-button {
-        @apply w-10 h-10 sm:w-14 sm:h-14 m-1 sm:m-2
+        @apply text-2xl p-1 m-1 sm:text-3xl md:text-4xl md:p-2 md:m-2 lg:text-5xl
+    }
+    .keyboard-button-div1 {
+        @apply flex
+    }
+    #I {
+        @apply px-2 sm:px-2 md:px-3
+    }
+    .keyboard-button-div2 {
+        @apply flex pl-3 md:pl-4 xl:pl-5 2xl:pl-6
+    }
+    .keyboard-button-div3 {
+        @apply flex pl-6 md:pl-7 xl:pl-8 2xl:pl-14
     }
     .hangman-img{
         @apply w-32 h-32 sm:w-60 sm:h-60

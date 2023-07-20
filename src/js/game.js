@@ -1,4 +1,4 @@
-import { WORDS, KEYBOARDS_LETTERS } from "./consts";
+import { WORDS, KEYBOARDS_LETTERS1, KEYBOARDS_LETTERS2, KEYBOARDS_LETTERS3 } from "./consts";
 
 const gameDiv = document.getElementById("game");
 const logoH1 = document.getElementById("logo");
@@ -14,13 +14,18 @@ const createPlaceholdersHTML = () => {
   );
   return `<div id='placeholders' class='placeholders-wrapper'>${placeholdersHTML}</div>`;
 };
+
 const createKeyboard = () => {
   const keyboard = document.createElement("div");
   keyboard.classList.add("keyboard");
   keyboard.id = "keyboard";
 
-  const keyboardHTML = KEYBOARDS_LETTERS.reduce((acc, curr, i) =>acc + `<button id="${curr}" class="button-primary keyboard-button">${curr}</button>`,"");
-  keyboard.innerHTML = keyboardHTML;
+  const keyboardHTML1 = KEYBOARDS_LETTERS1.reduce((acc, curr, i) =>acc + `<button id="${curr}" class="button-primary keyboard-button">${curr}</button>`,"");
+  const keyboardHTML2 = KEYBOARDS_LETTERS2.reduce((acc, curr, i) =>acc + `<button id="${curr}" class="button-primary keyboard-button">${curr}</button>`,"");
+  const keyboardHTML3 = KEYBOARDS_LETTERS3.reduce((acc, curr, i) =>acc + `<button id="${curr}" class="button-primary keyboard-button">${curr}</button>`,"");
+  keyboard.innerHTML += `<div class="keyboard-button-div1 ">${keyboardHTML1}</div>`;
+  keyboard.innerHTML += `<div class="keyboard-button-div2">${keyboardHTML2}</div>`;
+  keyboard.innerHTML += `<div class="keyboard-button-div3">${keyboardHTML3}</div>`;
   return keyboard;
 };
 
