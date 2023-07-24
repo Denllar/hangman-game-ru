@@ -38,7 +38,7 @@ const createHangmanImg = () => {
   return image;
 };
 
-const checkLetter = (letter) => {
+const checkLetter = (letter, category) => {
     const word = sessionStorage.getItem('word')
     const inputLetter = letter.toLowerCase()
     if (!word.includes(inputLetter)){
@@ -50,7 +50,7 @@ const checkLetter = (letter) => {
         hangmanImg.src = `images/hg-${10-triesLeft}.png`;
 
         if(triesLeft===0){
-            stopGame('lose');
+            stopGame('lose', category);
         }
     } else {
         const wordArray = Array.from(word)
@@ -58,7 +58,7 @@ const checkLetter = (letter) => {
             if (currentLetter === inputLetter) {
                 winCount ++;
                 if (winCount===word.length){
-                    stopGame('win')
+                    stopGame('win', category)
                     return;
                 }
                 document.getElementById(`letter_${i}`).innerText = inputLetter.toUpperCase()
@@ -68,7 +68,7 @@ const checkLetter = (letter) => {
     }
 }
 
-const stopGame = (status) => {
+const stopGame = (status, category) => {
     document.getElementById('placeholders').remove();
     document.getElementById('tries').remove();
     document.getElementById('keyboard').remove();
@@ -86,14 +86,35 @@ const stopGame = (status) => {
     }
 
     document.getElementById('game').innerHTML += `<p class="mb-4">The word was: <span class="result-word font-bold">${word}</span></p><button id="play-again" class="button-primary">Play again</button>`
-    document.getElementById('play-again').onclick = startGame;
+    document.getElementById('play-again').addEventListener('click', ()=>startGame(category));
 }
-export const startGame = () => {
+
+const returnToHome = () => {
+    gameDiv.innerHTML = ''
+    logoH1.classList.remove("logo-sm");
+    const categoryDiv = document.createElement('div')
+    categoryDiv.id = 'category'
+    gameDiv.appendChild(categoryDiv)
+
+    categoryDiv.innerHTML += '<button id="animals" class="button-primary">Animals</button>';
+    categoryDiv.innerHTML += '<button id="countries" class="button-primary">Countries</button>';
+    categoryDiv.innerHTML += '<button id="colors" class="button-primary">Colors</button>';
+    categoryDiv.innerHTML += '<button id="food" class="button-primary">Food</button>';
+
+    document.getElementById('animals').addEventListener('click', ()=>startGame('animals'));
+    document.getElementById('countries').addEventListener('click', ()=>startGame('countries'));
+    document.getElementById('colors').addEventListener('click', ()=>startGame('colors'));
+    document.getElementById('food').addEventListener('click', ()=>startGame('food'));
+
+    
+}
+
+export const startGame = (category) => {
     triesLeft = 10
     winCount = 0
     logoH1.classList.add("logo-sm");
-    const randomIndex = Math.floor(Math.random() * WORDS.length);
-    const wordToGuess = WORDS[randomIndex];
+    const randomIndex = Math.floor(Math.random() * WORDS[category].length);
+    const wordToGuess = WORDS[category][randomIndex];
     sessionStorage.setItem("word", wordToGuess);
 
     gameDiv.innerHTML = createPlaceholdersHTML();
@@ -104,7 +125,7 @@ export const startGame = () => {
     keyboardDiv.addEventListener("click", (event) => {
         if (event.target.tagName.toLowerCase() === 'button'){
             event.target.disabled = true;
-            checkLetter(event.target.id)
+            checkLetter(event.target.id, category)
         }
     });
     gameDiv.appendChild(keyboardDiv);
@@ -113,7 +134,7 @@ export const startGame = () => {
     document.getElementById('quit').onclick = () => {
         const isSure = confirm('Are you sure want to quit and lose progress?')
         if(isSure) {
-            stopGame('quit')
+            returnToHome()
         }
     }
 };

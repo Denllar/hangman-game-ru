@@ -85,4 +85,8 @@
     .result-word {
         @apply font-medium uppercase
     }
+
+    #category {
+        @apply flex flex-wrap justify-center
+    }
 }
