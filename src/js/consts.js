@@ -1,13 +1,14 @@
  export const WORDS = {
-   animals: ['cat', 'dog', 'monkey', 'lion', 'shark', 'bird', 'bear', 'fish', 'horse', 'chicken', 'snake'],
-   countries: ['russia', 'usa', 'ukraine', 'canada', 'portugal', 'brazil', 'japan', 'china'],
-   colors: ['white', 'black', 'green', 'yellow', 'red', 'pink', 'blue', 'violet', 'brown', 'grey'],
-   food: ['drink', 'hamburger', 'milk', 'bread', 'water', 'oil', 'meat', 'egg']
+   animals: ['кот', 'собака', 'обезьяна', 'лев', 'акула', 'птица', 'медведь', 'рыба', 'лошадь', 'курица', 'змея'],
+   countries: ['россия', 'сша', 'украина', 'канада', 'португалия', 'бразилия', 'япония', 'китай'],
+   colors: ['белый', 'черный', 'зеленый', 'желтый', 'красный', 'розовый', 'синий', 'фиолетовый', 'коричневый', 'серый'],
+   fruits: ['яблоко', 'абрикос', 'авокадо', 'ананас', 'банан', 'грейпфрут', 'киви', 'лайм', 'лимон', 'манго', 'дыня', 'нектарин', 'апельсин', 'маракуйя', 'персик', 'груша', 'хурма', 'слива', 'гранат', 'помело', 'мандарин'],
+   vegetables: ['авокадо', 'базилик', 'баклажан', 'бобы', 'брокколи', 'горох', 'горчица', 'кабачок', 'капуста', 'картофель', 'кукуруза', 'морковь', 'огурец', 'перец', 'редис', 'репа', 'свекла', 'томат', 'тыква', 'фасоль', 'хрен', 'черри', 'чеснок',],
  };
  export const KEYBOARDS_LETTERS = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
- export const KEYBOARDS_LETTERS1 = Array.from('QWERTYUIOP')
- export const KEYBOARDS_LETTERS2 = Array.from('ASDFGHJKL')
- export const KEYBOARDS_LETTERS3 = Array.from('ZXCVBNM')
+ export const KEYBOARDS_LETTERS1 = Array.from('ЙЦУКЕНГШЩЗХЪ')
+ export const KEYBOARDS_LETTERS2 = Array.from('ФЫВАПРОЛДЖЭ')
+ export const KEYBOARDS_LETTERS3 = Array.from('ЯЧСМИТЬБЮ')
 
 
 

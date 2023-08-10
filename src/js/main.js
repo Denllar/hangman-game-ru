@@ -22,10 +22,16 @@ colorsButton.addEventListener('click', ()=>{
     startGame('colors')
 })
 
-const foodButton = document.getElementById('food')
-foodButton.addEventListener('click', ()=>{
+const fruitsButton = document.getElementById('fruits')
+fruitsButton.addEventListener('click', ()=>{
     document.getElementById('game').classList.add('flex-col')
-    startGame('food')
+    startGame('fruits')
+})
+
+const vegetablesButton = document.getElementById('vegetables')
+vegetablesButton.addEventListener('click', ()=>{
+    document.getElementById('game').classList.add('flex-col')
+    startGame('vegetables')
 })
 
 

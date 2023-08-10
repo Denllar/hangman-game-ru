@@ -77,15 +77,15 @@ const stopGame = (status, category) => {
     const word = sessionStorage.getItem('word')
     if (status === 'win'){
         document.getElementById('hangman-img').src = 'images/hg-win.png';
-        document.getElementById('game').innerHTML += '<h2 class="result-header win">You won!</h2>';
+        document.getElementById('game').innerHTML += '<h2 class="result-header win">Победа!</h2>';
     } else if (status==='lose'){
-        document.getElementById('game').innerHTML += '<h2 class="result-header lose">You lost :(((</h2>';
+        document.getElementById('game').innerHTML += '<h2 class="result-header lose">Проигрыш :(((</h2>';
     } else if (status==='quit'){
         document.getElementById('hangman-img').remove()
         document.getElementById('logo').classList.remove('logo-sm')
     }
 
-    document.getElementById('game').innerHTML += `<p class="mb-4">The word was: <span class="result-word font-bold">${word}</span></p><button id="play-again" class="button-primary">Play again</button>`
+    document.getElementById('game').innerHTML += `<p class="mb-4">Было загадано: <span class="result-word font-bold">${word}</span></p><button id="play-again" class="button-primary">Играть снова</button>`
     document.getElementById('play-again').addEventListener('click', ()=>startGame(category));
 }
 
@@ -96,16 +96,17 @@ const returnToHome = () => {
     categoryDiv.id = 'category'
     gameDiv.appendChild(categoryDiv)
 
-    categoryDiv.innerHTML += '<button id="animals" class="button-primary">Animals</button>';
-    categoryDiv.innerHTML += '<button id="countries" class="button-primary">Countries</button>';
-    categoryDiv.innerHTML += '<button id="colors" class="button-primary">Colors</button>';
-    categoryDiv.innerHTML += '<button id="food" class="button-primary">Food</button>';
+    categoryDiv.innerHTML += '<button id="animals" class="button-primary">Животные</button>';
+    categoryDiv.innerHTML += '<button id="countries" class="button-primary">Страны</button>';
+    categoryDiv.innerHTML += '<button id="colors" class="button-primary">Цвета</button>';
+    categoryDiv.innerHTML += '<button id="fruits" class="button-primary">Фрукты</button>';
+    categoryDiv.innerHTML += '<button id="vegetables" class="button-primary">Овощи</button>';
 
     document.getElementById('animals').addEventListener('click', ()=>startGame('animals'));
     document.getElementById('countries').addEventListener('click', ()=>startGame('countries'));
     document.getElementById('colors').addEventListener('click', ()=>startGame('colors'));
-    document.getElementById('food').addEventListener('click', ()=>startGame('food'));
-
+    document.getElementById('fruits').addEventListener('click', ()=>startGame('fruits'));
+    document.getElementById('vegetables').addEventListener('click', ()=>startGame('vegetables'));
     
 }
 
@@ -119,7 +120,7 @@ export const startGame = (category) => {
 
     gameDiv.innerHTML = createPlaceholdersHTML();
     gameDiv.innerHTML +=
-        '<p id="tries" class="mt-2">TRIES LEFT: <span id="tries-left" class="font-medium text-red-600">10</span></p>';
+        '<p id="tries" class="mt-2">ОСТАЛОСЬ ПОПЫТОК: <span id="tries-left" class="font-medium text-red-600">10</span></p>';
 
     const keyboardDiv = createKeyboard();
     keyboardDiv.addEventListener("click", (event) => {
@@ -130,9 +131,9 @@ export const startGame = (category) => {
     });
     gameDiv.appendChild(keyboardDiv);
     gameDiv.prepend(createHangmanImg());
-    gameDiv.insertAdjacentHTML('beforeend', '<button id="quit" class="button-secondary px-2 py-1 mt-4">Quit</button>')
+    gameDiv.insertAdjacentHTML('beforeend', '<button id="quit" class="button-secondary px-2 py-1 mt-4">Выход</button>')
     document.getElementById('quit').onclick = () => {
-        const isSure = confirm('Are you sure want to quit and lose progress?')
+        const isSure = confirm('Ты уверен, что хочешь выйти и потерять результат?')
         if(isSure) {
             returnToHome()
         }
